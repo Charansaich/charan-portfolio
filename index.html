@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Charan Sai — Social Media Video Editor</title>
+  <style>
+    :root{--accent:#0ea5a4;--bg:#0f172a;--card:#0b1220;--glass:rgba(255,255,255,0.04);--text:#e6eef8}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;color:var(--text);background:linear-gradient(180deg,#071022 0%, #071a2a 100%);-webkit-font-smoothing:antialiased}
+    header{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:12px}
+    nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
+    .container{max-width:1100px;margin:0 auto;padding:20px}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start;margin-top:12px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px}
+    .showreel{height:220px;border-radius:10px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .showreel img{width:100%;height:100%;object-fit:cover}
+    .about{line-height:1.5}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .project{background:var(--card);border-radius:10px;padding:10px;cursor:pointer;min-height:120px;display:flex;flex-direction:column}
+    .project img{width:100%;height:100px;object-fit:cover;border-radius:8px}
+    .proj-title{font-weight:600;margin-top:8px;font-size:14px}
+    footer{margin-top:28px;padding:20px;text-align:center;color:#9fb0c7}
+    .contact{display:flex;flex-direction:column;gap:8px}
+    .btn{background:var(--accent);color:#042022;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
+    @media(max-width:900px){.hero{grid-template-columns:1fr} .projects{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:520px){.projects{grid-template-columns:1fr}}
+    /* Modal */ .modal{position:fixed;inset:0;background:rgba(2,6,23,0.7);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal-inner{width:100%;max-width:900px;background:#000;border-radius:10px;overflow:hidden}
+    .modal video, .modal iframe{width:100%;height:520px}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="brand">
+      <div class="logo">CS</div>
+      <div>
+        <h1>Charan Sai</h1>
+        <div style="font-size:13px;color:#9fb0c7">Social Media Video Editor — CapCut • Learning DaVinci Resolve</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h2 style="margin:0 0 8px 0">Showreel</h2>
+          <div class="showreel" id="showreel-placeholder">
+            <!-- Default placeholder image. Replace later with your showreel thumbnail file in assets/ folder. -->
+            <img src="assests\showreel.jpg" alt="showreel">
+          </div>
+          <p style="margin-top:10px;color:#9fb0c7;font-size:14px">30–45s montage. Click <strong>Play Showreel</strong> to preview (uses Drive or YouTube link).</p>
+          <div style="margin-top:12px"><a class="btn" id="open-showreel">Play Showreel</a></div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">Projects</h3>
+          <div id="projects" class="projects">
+            <!-- Add as many .project blocks as you like. Replace thumbnail paths and data-video links below -->
+            <div class="Cinematic" data-video="https://drive.google.com/file/d/11j8YvnZp88s0gX1xQCXGf4vG9cLo9m-F/view?usp=drive_link">
+              <img src="assets/thumb1.jpg" alt="Cinematic">
+              <div class="proj-title">Reel — Cinematic</div>
+            </div>
+            <div class="Color Grading" data-video="https://drive.google.com/file/d/1Wwska63NSOHYMMkAozVum9i0Ww2NyqY0/view?usp=drive_link">
+              <img src="assets/thumb2.jpg" alt="project 2">
+              <div class="proj-title">Reel-Color Grading</div>
+            </div>
+            <div class="Reel" data-video="https://drive.google.com/file/d/1_EiQJrOkYZfhaJMt1oGTg9PZKCEdXnm7/view?usp=drive_link">
+              <img src="assets/thumb3.jpg" alt="project 3">
+              <div class="proj-title">Normal Reel</div>
+            </div>
+            <!-- Add more project cards here if needed -->
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card about" id="about">
+          <h3 style="margin:0 0 8px 0">About Me</h3>
+          <p>Hi — I’m <strong>Charan Sai</strong>, a social media editor who crafts fast, high-retention reels using <strong>CapCut</strong>. I focus on trend-aware edits, captions, and music-synced cuts. I’m learning <strong>DaVinci Resolve</strong> for advanced color grading.</p>
+          <div class="skills">
+            <div class="chip">CapCut</div>
+            <div class="chip">Reels / Shorts</div>
+            <div class="chip">Color Grading</div>
+            <div class="chip">Captions</div>
+            <div class="chip">Cinematic</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px" id="contact">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <div class="contact">
+            <!-- Replace the placeholders below with your real contact info -->
+            <div>Email: <a id="emailLink" href="mailto:charansaichintala02@gmail.com" style="color:var(--accent)">charansaichintala02@gmail.com</a></div>
+            <div>Instagram: <a id="instaLink" href="https://www.instagram.com/lenses_of.life?igsh=MWJpYnQ4bzF2dWlkNQ==" target="_blank" style="color:var(--accent)">@lenses_of.life</a></div>
+            <div><a class="btn" id="hireBtn" href="mailto:charansaichintala02@gmail.com">Hire Me for Part Time</a></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      Built with ❤️ — Replace content & links with your Drive files. See README in repo for hosting steps.
+    </footer>
+  </main>
+
+  <!-- Modal video player -->
+  <div class="modal" id="modal">
+    <div class="modal-inner" id="modalInner">
+      <!-- iframe or video will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    /* -----------------------
+       HOW TO USE:
+       1) Put thumbnails and local images into an 'assets/' folder (create it).
+          Example files used above:
+            - assets/showreel-thumb.jpg
+            - assets/thumb1.jpg
+            - assets/thumb2.jpg
+            - assets/thumb3.jpg
+       2) Replace placeholders:
+            - DRIVE_SHOWREEL_LINK  (your showreel Drive or YouTube link)
+            - DRIVE_LINK_1, DRIVE_LINK_2, DRIVE_LINK_3  (project links)
+            - YOUR_EMAIL_HERE, YOUR_INSTAGRAM_HERE
+       3) Drive links must be 'share' links. Recommended Drive share pattern:
+            https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+          The script converts that to embed: /preview
+       4) YouTube links (watch?v=ID) are auto-converted to embed.
+    ------------------------ */
+
+    const modal = document.getElementById('modal');
+    const modalInner = document.getElementById('modalInner');
+
+    function openVideo(url){
+      modalInner.innerHTML = '';
+      if(!url){
+        alert('No video link provided. Replace the data-video or showreel link in the HTML.');
+        return;
+      }
+
+      // GOOGLE DRIVE embed handling (expected pattern: /d/FILE_ID/)
+      if(url.includes('drive.google.com')){
+        const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+        if(m && m[1]){
+          const id = m[1];
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link' + id + '/preview';
+          iframe.frameBorder = '0';
+          iframe.allow = 'autoplay; encrypted-media; fullscreen';
+          modalInner.appendChild(iframe);
+        } else {
+          // fallback: try direct embed
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.frameBorder = '0';
+          iframe.allow = 'autoplay; encrypted-media; fullscreen';
+          modalInner.appendChild(iframe);
+        }
+      }
+      // YouTube handling
+      else if(url.includes('youtube.com') || url.includes('youtu.be')){
+        let embedUrl = url;
+        // convert watch?v= to embed/
+        if(url.includes('watch?v=')) embedUrl = url.replace('watch?v=', 'embed/');
+        if(url.includes('youtu.be/')) embedUrl = url.replace('youtu.be/', 'www.youtube.com/embed/');
+        const iframe = document.createElement('iframe');
+        iframe.src = embedUrl;
+        iframe.frameBorder = '0';
+        iframe.allow = 'autoplay; encrypted-media; fullscreen';
+        modalInner.appendChild(iframe);
+      } else {
+        // fallback: treat as direct video file URL
+        const v = document.createElement('video');
+        v.src = url;
+        v.controls = true;
+        v.autoplay = true;
+        modalInner.appendChild(v);
+      }
+      modal.style.display = 'flex';
+    }
+
+    // Showreel: replace DRIVE_SHOWREEL_LINK with your share link below
+    document.getElementById('open-showreel').addEventListener('click', () => {
+      openVideo('https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link');
+    });
+
+    // project click handlers - replace data-video attributes in each .project element
+    document.querySelectorAll('.project').forEach(p=>{
+      p.addEventListener('click', ()=>{
+        const link = p.getAttribute('data-video');
+        openVideo(https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link);
+      });
+    });
+
+    // close modal on click outside
+    modal.addEventListener('click', (e)=>{
+      if(e.target === modal){ modal.style.display = 'none'; modalInner.innerHTML = ''; }
+    });
+
+    // --- Optional: dynamic contact links (if you want to set via JS) ---
+    // document.getElementById('emailLink').href = 'mailto:charansaichintala02@gmail.com';
+    // document.getElementById('instaLink').href = 'https://instagram.com/yourhandle';
+    // document.getElementById('instaLink').innerText = '@lenses_of.life';
+  </script>
+</body>
+</html>
