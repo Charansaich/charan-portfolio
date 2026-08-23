@@ -1,220 +1,550 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Charan Sai — Social Media Video Editor</title>
-  <style>
-    :root{--accent:#0ea5a4;--bg:#0f172a;--card:#0b1220;--glass:rgba(255,255,255,0.04);--text:#e6eef8}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;color:var(--text);background:linear-gradient(180deg,#071022 0%, #071a2a 100%);-webkit-font-smoothing:antialiased}
-    header{padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .brand h1{font-size:18px;margin:0}
-    nav{display:flex;gap:12px}
-    nav a{color:var(--text);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:14px}
-    .container{max-width:1100px;margin:0 auto;padding:20px}
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;align-items:start;margin-top:12px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px}
-    .showreel{height:220px;border-radius:10px;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .showreel img{width:100%;height:100%;object-fit:cover}
-    .about{line-height:1.5}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{background:var(--glass);padding:8px 10px;border-radius:999px;font-size:13px}
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .project{background:var(--card);border-radius:10px;padding:10px;cursor:pointer;min-height:120px;display:flex;flex-direction:column}
-    .project img{width:100%;height:100px;object-fit:cover;border-radius:8px}
-    .proj-title{font-weight:600;margin-top:8px;font-size:14px}
-    footer{margin-top:28px;padding:20px;text-align:center;color:#9fb0c7}
-    .contact{display:flex;flex-direction:column;gap:8px}
-    .btn{background:var(--accent);color:#042022;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-block}
-    @media(max-width:900px){.hero{grid-template-columns:1fr} .projects{grid-template-columns:repeat(2,1fr)} }
-    @media(max-width:520px){.projects{grid-template-columns:1fr}}
-    /* Modal */ .modal{position:fixed;inset:0;background:rgba(2,6,23,0.7);display:none;align-items:center;justify-content:center;padding:20px}
-    .modal-inner{width:100%;max-width:900px;background:#000;border-radius:10px;overflow:hidden}
-    .modal video, .modal iframe{width:100%;height:520px}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charan Sai Chinthala | Cloud Engineer Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Charan Sai Chinthala – AWS Certified Cloud Practitioner, IoT Engineer, and aspiring Solutions Architect." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon emoji fallback -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
 </head>
+
 <body>
-  <header class="container">
-    <div class="brand">
-      <div class="logo">CS</div>
-      <div>
-        <h1>Charan Sai</h1>
-        <div style="font-size:13px;color:#9fb0c7">Social Media Video Editor — CapCut • Learning DaVinci Resolve</div>
-      </div>
-    </div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+
+  <!-- ── STAR CANVAS ──────────────────────────────────────── -->
+  <canvas id="canvas-bg"></canvas>
+
+  <div class="page-wrapper">
+
+    <!-- ══════════════════════════  NAVIGATION  ══════════════ -->
+    <nav id="main-nav">
+      <div class="nav-logo">CSC.DEV</div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#aws">Cloud Journey</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <div class="card">
-          <h2 style="margin:0 0 8px 0">Showreel</h2>
-          <div class="showreel" id="showreel-placeholder">
-            <!-- Default placeholder image. Replace later with your showreel thumbnail file in assets/ folder. -->
-            <img src="assests\showreel.jpg" alt="showreel">
-          </div>
-          <p style="margin-top:10px;color:#9fb0c7;font-size:14px">30–45s montage. Click <strong>Play Showreel</strong> to preview (uses Drive or YouTube link).</p>
-          <div style="margin-top:12px"><a class="btn" id="open-showreel">Play Showreel</a></div>
+    <!-- ══════════════════════════  HERO  ════════════════════ -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          🟢 &nbsp;Available for Opportunities
         </div>
-
-        <div class="card" style="margin-top:14px">
-          <h3 style="margin:0 0 8px 0">Projects</h3>
-          <div id="projects" class="projects">
-            <!-- Add as many .project blocks as you like. Replace thumbnail paths and data-video links below -->
-            <div class="Cinematic" data-video="https://drive.google.com/file/d/11j8YvnZp88s0gX1xQCXGf4vG9cLo9m-F/view?usp=drive_link">
-              <img src="assets/thumb1.jpg" alt="Cinematic">
-              <div class="proj-title">Reel — Cinematic</div>
-            </div>
-            <div class="Color Grading" data-video="https://drive.google.com/file/d/1Wwska63NSOHYMMkAozVum9i0Ww2NyqY0/view?usp=drive_link">
-              <img src="assets/thumb2.jpg" alt="project 2">
-              <div class="proj-title">Reel-Color Grading</div>
-            </div>
-            <div class="Reel" data-video="https://drive.google.com/file/d/1_EiQJrOkYZfhaJMt1oGTg9PZKCEdXnm7/view?usp=drive_link">
-              <img src="assets/thumb3.jpg" alt="project 3">
-              <div class="proj-title">Normal Reel</div>
-            </div>
-            <!-- Add more project cards here if needed -->
-          </div>
+        <h1 class="hero-name">Charan Sai<br>Chinthala</h1>
+        <p class="hero-title" id="typewriter">Cloud Engineer in Training</p>
+        <p class="hero-sub">
+          B.Tech CSE (IoT) graduate building highly available systems on AWS.<br>
+          Driven by cloud architecture, network reliability &amp; DevOps — one certification at a time.
+        </p>
+        <div class="hero-actions">
+          <a href="https://drive.google.com/file/d/1RYWpbxI4OHA50vedxylNBTyINIkfdXTo/view?usp=drive_link" download
+            class="btn btn-primary">
+            ⬇ Download Resume
+          </a>
+          <a href="#contact" class="btn btn-outline">Let's Connect</a>
         </div>
       </div>
-
-      <aside>
-        <div class="card about" id="about">
-          <h3 style="margin:0 0 8px 0">About Me</h3>
-          <p>Hi — I’m <strong>Charan Sai</strong>, a social media editor who crafts fast, high-retention reels using <strong>CapCut</strong>. I focus on trend-aware edits, captions, and music-synced cuts. I’m learning <strong>DaVinci Resolve</strong> for advanced color grading.</p>
-          <div class="skills">
-            <div class="chip">CapCut</div>
-            <div class="chip">Reels / Shorts</div>
-            <div class="chip">Color Grading</div>
-            <div class="chip">Captions</div>
-            <div class="chip">Cinematic</div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:14px" id="contact">
-          <h3 style="margin:0 0 8px 0">Contact</h3>
-          <div class="contact">
-            <!-- Replace the placeholders below with your real contact info -->
-            <div>Email: <a id="emailLink" href="mailto:charansaichintala02@gmail.com" style="color:var(--accent)">charansaichintala02@gmail.com</a></div>
-            <div>Instagram: <a id="instaLink" href="https://www.instagram.com/lenses_of.life?igsh=MWJpYnQ4bzF2dWlkNQ==" target="_blank" style="color:var(--accent)">@lenses_of.life</a></div>
-            <div><a class="btn" id="hireBtn" href="mailto:charansaichintala02@gmail.com">Hire Me for Part Time</a></div>
-          </div>
-        </div>
-      </aside>
+      <div class="hero-scroll">Scroll</div>
     </section>
 
-    <footer>
-      Built with ❤️ — Replace content & links with your Drive files. See README in repo for hosting steps.
-    </footer>
-  </main>
+    <!-- ══════════════════════════  ABOUT  ═══════════════════ -->
+    <section id="about">
+      <div class="about-grid reveal">
+        <div class="about-avatar-wrap">
+          <div class="about-avatar">CS</div>
+        </div>
+        <div class="about-text">
+          <h3>// About Me</h3>
+          <p>
+            I'm a <strong>Computer Science (IoT)</strong> engineering student at KITSW, Warangal, specializing in cloud
+            infrastructure, Linux administration, and networking. I bring hands-on experience from real-world
+            internships and self-driven AWS projects.
+          </p>
+          <p>
+            My focus is on <strong>Support Engineering</strong> and cloud solutions — diagnosing hardware/software
+            issues, building highly available systems, and delivering customer-focused outcomes in distributed
+            environments.
+          </p>
+          <div class="about-info-grid">
+            <div class="about-info-item"><span class="ico">📍</span> Hyderabad, India</div>
+            <div class="about-info-item"><span class="ico">🎓</span> B.Tech CSE (IoT)</div>
+            <div class="about-info-item"><span class="ico">📧</span> charansaichinthala06@gmail.com</div>
+            <div class="about-info-item"><span class="ico">📞</span> +91-8530951673</div>
+            <div class="about-info-item"><span class="ico">☁️</span> AWS Certified (CLF-C02)</div>
+            <div class="about-info-item"><span class="ico">🎯</span> Target: SAA-C03</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Modal video player -->
-  <div class="modal" id="modal">
-    <div class="modal-inner" id="modalInner">
-      <!-- iframe or video will be injected here -->
+    <!-- ══════════════════════ AWS CLOUD JOURNEY ══════════════ -->
+    <div id="aws">
+      <div class="aws-inner">
+        <div class="section-header reveal">
+          <span class="section-tag">🎮 Cloud Quest</span>
+          <h2 class="section-title">AWS <span>Certification Journey</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- XP BAR -->
+        <div class="xp-bar-wrap reveal">
+          <div class="xp-label">
+            <span>☁️ CLOUD XP</span>
+            <span id="xp-text">42% to Solutions Architect</span>
+          </div>
+          <div class="xp-track">
+            <div class="xp-fill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <!-- LEVEL CARDS -->
+        <div class="aws-levels">
+
+          <!-- Level 1 — Cloud Practitioner ✅ -->
+          <div class="level-card unlocked reveal">
+            <span class="lock-overlay">✅</span>
+            <div class="level-num">Level 01</div>
+            <span class="level-badge">🏅</span>
+            <div class="level-name">Cloud Practitioner</div>
+            <div class="level-code">AWS CLF-C02</div>
+            <span class="level-status status-cleared">✔ CLEARED</span>
+            <div class="level-desc">
+              Demonstrated foundational knowledge of AWS Cloud concepts, security, pricing, and core services including
+              EC2, S3, IAM, and VPC.
+            </div>
+            <div class="level-progress-wrap">
+              <div class="level-progress-label">Completion</div>
+              <div class="level-progress-bar">
+                <div class="level-progress-fill fill-green" data-pct="100"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 2 — SAA In Progress 🎯 -->
+          <div class="level-card in-progress reveal">
+            <span class="lock-overlay">🎯</span>
+            <div class="level-num">Level 02</div>
+            <span class="level-badge">🔥</span>
+            <div class="level-name">Solutions Architect</div>
+            <div class="level-code">AWS SAA-C03</div>
+            <span class="level-status status-progress">⚡ IN PROGRESS</span>
+            <div class="level-desc">
+              Designing scalable, resilient, and cost-optimized solutions on AWS. Covering EC2, RDS, VPC, Route 53, S3,
+              Lambda, CloudFormation &amp; more.
+            </div>
+            <div class="level-progress-wrap">
+              <div class="level-progress-label">Study Progress</div>
+              <div class="level-progress-bar">
+                <div class="level-progress-fill fill-orange" data-pct="42"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 3 — Locked -->
+          <div class="level-card locked reveal">
+            <span class="lock-overlay">🔒</span>
+            <div class="level-num">Level 03</div>
+            <span class="level-badge">⭐</span>
+            <div class="level-name">DevOps Engineer</div>
+            <div class="level-code">AWS DVA / DOP</div>
+            <span class="level-status status-locked">🔒 LOCKED</span>
+            <div class="level-desc">
+              Next frontier: CI/CD pipelines, Infrastructure as Code, container orchestration, and automated deployments
+              on AWS.
+            </div>
+            <div class="level-progress-wrap">
+              <div class="level-progress-label">Locked</div>
+              <div class="level-progress-bar">
+                <div class="level-progress-fill fill-muted" data-pct="0"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script>
-    /* -----------------------
-       HOW TO USE:
-       1) Put thumbnails and local images into an 'assets/' folder (create it).
-          Example files used above:
-            - assets/showreel-thumb.jpg
-            - assets/thumb1.jpg
-            - assets/thumb2.jpg
-            - assets/thumb3.jpg
-       2) Replace placeholders:
-            - DRIVE_SHOWREEL_LINK  (your showreel Drive or YouTube link)
-            - DRIVE_LINK_1, DRIVE_LINK_2, DRIVE_LINK_3  (project links)
-            - YOUR_EMAIL_HERE, YOUR_INSTAGRAM_HERE
-       3) Drive links must be 'share' links. Recommended Drive share pattern:
-            https://drive.google.com/file/d/FILE_ID/view?usp=sharing
-          The script converts that to embed: /preview
-       4) YouTube links (watch?v=ID) are auto-converted to embed.
-    ------------------------ */
+    <!-- ══════════════════════════  SKILLS  ══════════════════ -->
+    <section id="skills">
+      <div class="section-header reveal">
+        <span class="section-tag">⚡ Tech Arsenal</span>
+        <h2 class="section-title">Technical <span>Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
 
-    const modal = document.getElementById('modal');
-    const modalInner = document.getElementById('modalInner');
+      <div class="skills-grid">
 
-    function openVideo(url){
-      modalInner.innerHTML = '';
-      if(!url){
-        alert('No video link provided. Replace the data-video or showreel link in the HTML.');
-        return;
-      }
+        <!-- Cloud & AWS -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">☁️</span> Cloud &amp; AWS</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">AWS EC2 / Auto Scaling</span><span
+                class="skill-pct">85%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">S3 / IAM / VPC</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Load Balancer / CloudWatch</span><span
+                class="skill-pct">75%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Route 53 / Auto Scaling</span><span
+                class="skill-pct">70%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="70"></div>
+            </div>
+          </div>
+        </div>
 
-      // GOOGLE DRIVE embed handling (expected pattern: /d/FILE_ID/)
-      if(url.includes('drive.google.com')){
-        const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-        if(m && m[1]){
-          const id = m[1];
-          const iframe = document.createElement('iframe');
-          iframe.src = 'https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link' + id + '/preview';
-          iframe.frameBorder = '0';
-          iframe.allow = 'autoplay; encrypted-media; fullscreen';
-          modalInner.appendChild(iframe);
-        } else {
-          // fallback: try direct embed
-          const iframe = document.createElement('iframe');
-          iframe.src = url;
-          iframe.frameBorder = '0';
-          iframe.allow = 'autoplay; encrypted-media; fullscreen';
-          modalInner.appendChild(iframe);
-        }
-      }
-      // YouTube handling
-      else if(url.includes('youtube.com') || url.includes('youtu.be')){
-        let embedUrl = url;
-        // convert watch?v= to embed/
-        if(url.includes('watch?v=')) embedUrl = url.replace('watch?v=', 'embed/');
-        if(url.includes('youtu.be/')) embedUrl = url.replace('youtu.be/', 'www.youtube.com/embed/');
-        const iframe = document.createElement('iframe');
-        iframe.src = embedUrl;
-        iframe.frameBorder = '0';
-        iframe.allow = 'autoplay; encrypted-media; fullscreen';
-        modalInner.appendChild(iframe);
-      } else {
-        // fallback: treat as direct video file URL
-        const v = document.createElement('video');
-        v.src = url;
-        v.controls = true;
-        v.autoplay = true;
-        modalInner.appendChild(v);
-      }
-      modal.style.display = 'flex';
-    }
+        <!-- Networking -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">🌐</span> Networking &amp; Protocols</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">TCP/IP / Subnetting</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">VLANs / LAN / WAN</span><span class="skill-pct">75%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Wireshark / Cisco Packet Tracer</span><span
+                class="skill-pct">70%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">OSI Model / Troubleshooting</span><span
+                class="skill-pct">78%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="78"></div>
+            </div>
+          </div>
+        </div>
 
-    // Showreel: replace DRIVE_SHOWREEL_LINK with your share link below
-    document.getElementById('open-showreel').addEventListener('click', () => {
-      openVideo('https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link');
-    });
+        <!-- Operating Systems -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">🐧</span> Operating Systems</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Linux (Ubuntu)</span><span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="80"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Shell Commands / Scripting</span><span
+                class="skill-pct">72%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="72"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Process Monitoring</span><span class="skill-pct">68%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="68"></div>
+            </div>
+          </div>
+        </div>
 
-    // project click handlers - replace data-video attributes in each .project element
-    document.querySelectorAll('.project').forEach(p=>{
-      p.addEventListener('click', ()=>{
-        const link = p.getAttribute('data-video');
-        openVideo(https://drive.google.com/file/d/1InimV79ul2uOc8dRVbfqQEvTCMN2tsLh/view?usp=drive_link);
-      });
-    });
+        <!-- Programming -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">💻</span> Programming</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Java (Basics)</span><span class="skill-pct">55%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="55"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Data Structures &amp; Algorithms</span><span
+                class="skill-pct">65%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="65"></div>
+            </div>
+          </div>
+        </div>
 
-    // close modal on click outside
-    modal.addEventListener('click', (e)=>{
-      if(e.target === modal){ modal.style.display = 'none'; modalInner.innerHTML = ''; }
-    });
+        <!-- Hardware & IoT -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">🔌</span> Hardware &amp; IoT</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">RFID Tags &amp; Readers</span><span
+                class="skill-pct">82%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="82"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Arduino / ESP8266</span><span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">LDR / PIR Sensors</span><span class="skill-pct">65%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="65"></div>
+            </div>
+          </div>
+        </div>
 
-    // --- Optional: dynamic contact links (if you want to set via JS) ---
-    // document.getElementById('emailLink').href = 'mailto:charansaichintala02@gmail.com';
-    // document.getElementById('instaLink').href = 'https://instagram.com/yourhandle';
-    // document.getElementById('instaLink').innerText = '@lenses_of.life';
-  </script>
+        <!-- Tools & Data -->
+        <div class="skill-category reveal">
+          <div class="skill-cat-title"><span class="ico">📊</span> Tools &amp; Analytics</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Power BI Dashboards</span><span class="skill-pct">70%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="70"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Data Validation / Debugging</span><span
+                class="skill-pct">74%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="74"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Technical Documentation</span><span
+                class="skill-pct">78%</span></div>
+            <div class="skill-track">
+              <div class="skill-fill" data-pct="78"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════  EXPERIENCE  ══════════════ -->
+    <section id="experience">
+      <div class="section-header reveal">
+        <span class="section-tag">🏢 Work History</span>
+        <h2 class="section-title">Professional <span>Experience</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Edsnet Foundation -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-date">Dec 2024 – Jan 2025</span>
+              <span class="timeline-type">Remote Internship</span>
+            </div>
+            <div class="timeline-role">AI &amp; Data Analytics Intern</div>
+            <div class="timeline-company">Edsnet Foundation</div>
+            <ul class="timeline-points">
+              <li>Identified and resolved data quality issues through systematic debugging and validation techniques.
+              </li>
+              <li>Built interactive <strong>Power BI dashboards</strong>, prepared weekly reports, and communicated key
+                metrics to stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ultratech Cement -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-meta">
+              <span class="timeline-date">Jun 2024 – Jul 2024</span>
+              <span class="timeline-type">Hybrid Internship</span>
+            </div>
+            <div class="timeline-role">IIoT Intern</div>
+            <div class="timeline-company">Ultratech Cement Limited</div>
+            <ul class="timeline-points">
+              <li>Deployed and tested <strong>RFID tags and readers</strong> across warehouse operations, enabling
+                real-time tracking and automating inventory logging.</li>
+              <li>Managed vendor coordination for hardware integration and performed troubleshooting of RFID
+                communication failures during deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════  PROJECTS  ════════════════ -->
+    <section id="projects">
+      <div class="section-header reveal">
+        <span class="section-tag">🚀 Built Projects</span>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 — AWS Web App -->
+        <div class="project-card reveal">
+          <div class="project-icon">☁️</div>
+          <div class="project-title">Cloud Web Application Deployment on AWS</div>
+          <div class="project-tags">
+            <span class="tag">EC2</span>
+            <span class="tag">ALB</span>
+            <span class="tag">Auto Scaling</span>
+            <span class="tag">IAM</span>
+            <span class="tag">VPC</span>
+            <span class="tag">CloudWatch</span>
+          </div>
+          <ul class="project-desc">
+            <li>Designed and deployed a highly available web application using EC2, Application Load Balancer, Auto
+              Scaling Groups, IAM, and VPC.</li>
+            <li>Configured security groups and networking policies for secure inter-resource communication.</li>
+            <li>Troubleshot connectivity, load balancing, and deployment issues to improve service reliability.</li>
+            <li>Implemented monitoring and health checks for continuous availability.</li>
+          </ul>
+        </div>
+
+        <!-- Project 2 — RFID Billing -->
+        <div class="project-card reveal">
+          <div class="project-icon">📡</div>
+          <div class="project-title">Automated Billing System using RFID Technology</div>
+          <div class="project-tags">
+            <span class="tag">RFID</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">ESP8266</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Python</span>
+          </div>
+          <ul class="project-desc">
+            <li>Integrated RFID readers, tags, and microcontrollers to automate inventory and billing operations.</li>
+            <li>Diagnosed and resolved hardware communication and connectivity issues during deployment.</li>
+            <li>Performed system testing, debugging, and validation to ensure operational reliability.</li>
+            <li>Created technical documentation and deployment procedures.</li>
+          </ul>
+        </div>
+
+        <!-- Project 3 — Personal Cloud Lab -->
+        <div class="project-card reveal">
+          <div class="project-icon">🔬</div>
+          <div class="project-title">AWS Cloud Labs — SAA-C03 Practice Environment</div>
+          <div class="project-tags">
+            <span class="tag">Route 53</span>
+            <span class="tag">RDS</span>
+            <span class="tag">S3</span>
+            <span class="tag">Lambda</span>
+            <span class="tag">CloudFormation</span>
+          </div>
+          <ul class="project-desc">
+            <li>Actively building hands-on lab environments to practice SAA-C03 exam topics.</li>
+            <li>Configured multi-AZ RDS deployments, S3 static websites, and serverless Lambda functions.</li>
+            <li>Practicing Infrastructure as Code with CloudFormation templates and testing VPC peering scenarios.</li>
+            <li>Documenting findings and architecture diagrams for each lab exercise.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════  EDUCATION  ═══════════════ -->
+    <section id="education">
+      <div class="section-header reveal">
+        <span class="section-tag">🎓 Academia</span>
+        <h2 class="section-title">My <span>Education</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏛️</div>
+        <div>
+          <div class="edu-degree">B.Tech — Computer Science Engineering (IoT)</div>
+          <div class="edu-school">Kakatiya Institute of Technology and Science (KITSW)</div>
+          <div class="edu-meta">
+            <span>📅 Nov 2022 – May 2026</span>
+            <span>📍 Warangal, India</span>
+          </div>
+          <span class="cgpa-badge">⭐ CGPA: 7.90 / 10.00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════  CONTACT  ═════════════════ -->
+    <div id="contact">
+      <div class="contact-inner">
+        <div class="section-header reveal">
+          <span class="section-tag">📡 Connect</span>
+          <h2 class="section-title">Get In <span>Touch</span></h2>
+          <div class="section-line"></div>
+          <p style="color:var(--text-muted); margin-top:0.8rem; font-size:0.9rem;">
+            Open to cloud roles, internships, and collaborations. Let's build something great!
+          </p>
+        </div>
+
+        <div class="social-grid reveal">
+          <a href="https://linkedin.com/in/charansaichinthala" target="_blank" rel="noopener"
+            class="social-card linkedin">
+            <span class="social-icon">💼</span>
+            <span class="social-label">LinkedIn</span>
+          </a>
+          <a href="mailto:charansaichinthala06@gmail.com" class="social-card email">
+            <span class="social-icon">📧</span>
+            <span class="social-label">Email</span>
+          </a>
+          <a href="https://github.com/" target="_blank" rel="noopener" class="social-card github">
+            <span class="social-icon">🐙</span>
+            <span class="social-label">GitHub</span>
+          </a>
+          <a href="tel:+918530951673" class="social-card phone">
+            <span class="social-icon">📱</span>
+            <span class="social-label">+91-8530951673</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════  FOOTER  ══════════════════ -->
+    <footer>
+      <p>© 2025 <span>Charan Sai Chinthala</span> &nbsp;·&nbsp; Crafted with ☁️ &amp; ⚡</p>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <script src="script.js"></script>
 </body>
+
 </html>
