@@ -8,7 +8,10 @@
   <meta name="description"
     content="Portfolio of Charan Sai Chinthala – AWS Certified Cloud Practitioner, IoT Engineer, and aspiring Solutions Architect." />
   <link rel="stylesheet" href="style.css" />
-  <!-- Favicon emoji fallback -->
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" />
+  <!-- Favicon -->
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
 </head>
@@ -22,15 +25,15 @@
 
     <!-- ══════════════════════════  NAVIGATION  ══════════════ -->
     <nav id="main-nav">
-      <div class="nav-logo">CS.CLOUD</div>
+      <div class="nav-logo"><i class="fa-solid fa-cloud"></i> CS.CLOUD</div>
       <ul class="nav-links">
-        <li><a href="#hero" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#aws">Cloud Journey</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#hero" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#aws"><i class="fa-brands fa-aws"></i> Cloud Journey</a></li>
+        <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+        <li><a href="#experience"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+        <li><a href="#projects"><i class="fa-solid fa-rocket"></i> Projects</a></li>
+        <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
       <button class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -41,7 +44,7 @@
     <section id="hero">
       <div class="hero-inner">
         <div class="hero-badge">
-          🟢 &nbsp;Available for Opportunities
+          <i class="fa-solid fa-circle" style="color:#10b981;font-size:0.55rem;"></i>&nbsp; Available for Opportunities
         </div>
         <h1 class="hero-name">Charan Sai<br>Chinthala</h1>
         <p class="hero-title" id="typewriter">Cloud Engineer in Training</p>
@@ -52,9 +55,9 @@
         <div class="hero-actions">
           <a href="https://drive.google.com/uc?export=download&id=1RYWpbxI4OHA50vedxylNBTyINIkfdXTo" target="_blank"
             rel="noopener" class="btn btn-primary">
-            ⬇ Download Resume
+            <i class="fa-solid fa-download"></i> Download Resume
           </a>
-          <a href="#contact" class="btn btn-outline">Let's Connect</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Let's Connect</a>
         </div>
       </div>
       <div class="hero-scroll">Scroll</div>
@@ -64,10 +67,15 @@
     <section id="about">
       <div class="about-grid reveal">
         <div class="about-avatar-wrap">
-          <div class="about-avatar">CS</div>
+          <div class="about-avatar-card">
+            <div class="avatar-ring"></div>
+            <div class="avatar-inner">
+              <img src="photo.png" alt="Charan Sai Chinthala" />
+            </div>
+          </div>
         </div>
         <div class="about-text">
-          <h3>// About Me</h3>
+          <h3><i class="fa-solid fa-terminal" style="font-size:1.1rem;"></i> About Me</h3>
           <p>
             Computer Science graduate with hands-on experience in <strong>TCP/IP, subnetting, and network
               troubleshooting</strong>, alongside strong programming skills in <strong>Python and SQL</strong>.
@@ -79,12 +87,12 @@
               DevOps</strong>.
           </p>
           <div class="about-info-grid">
-            <div class="about-info-item"><span class="ico">📍</span> Hyderabad, India</div>
-            <div class="about-info-item"><span class="ico">🎓</span> B.Tech CSE (IoT)</div>
-            <div class="about-info-item"><span class="ico">📧</span> charansaichinthala06@gmail.com</div>
-            <div class="about-info-item"><span class="ico">📞</span> +91-8530951673</div>
-            <div class="about-info-item"><span class="ico">☁️</span> AWS Certified (CLF-C02)</div>
-            <div class="about-info-item"><span class="ico">🎯</span> Target: SAA-C03</div>
+            <div class="about-info-item"><i class="fa-solid fa-location-dot ico"></i> Hyderabad, India</div>
+            <div class="about-info-item"><i class="fa-solid fa-graduation-cap ico"></i> B.Tech CSE (IoT)</div>
+            <div class="about-info-item"><i class="fa-solid fa-envelope ico"></i> charansaichinthala06@gmail.com</div>
+            <div class="about-info-item"><i class="fa-solid fa-phone ico"></i> +91-8530951673</div>
+            <div class="about-info-item"><i class="fa-brands fa-aws ico"></i> AWS Certified (CLF-C02)</div>
+            <div class="about-info-item"><i class="fa-solid fa-bullseye ico"></i> Target: SAA-C03</div>
           </div>
         </div>
       </div>
@@ -94,7 +102,7 @@
     <div id="aws">
       <div class="aws-inner">
         <div class="section-header reveal">
-          <span class="section-tag">🎮 Cloud Quest</span>
+          <span class="section-tag"><i class="fa-solid fa-gamepad"></i> Cloud Quest</span>
           <h2 class="section-title">AWS <span>Certification Journey</span></h2>
           <div class="section-line"></div>
         </div>
@@ -102,7 +110,7 @@
         <!-- XP BAR -->
         <div class="xp-bar-wrap reveal">
           <div class="xp-label">
-            <span>☁️ CLOUD XP</span>
+            <span><i class="fa-brands fa-aws"></i> CLOUD XP</span>
             <span id="xp-text">42% to Solutions Architect</span>
           </div>
           <div class="xp-track">
@@ -115,12 +123,12 @@
 
           <!-- Level 1 — Cloud Practitioner ✅ -->
           <div class="level-card unlocked reveal">
-            <span class="lock-overlay">✅</span>
+            <span class="lock-overlay"><i class="fa-solid fa-circle-check" style="color:#10b981;"></i></span>
             <div class="level-num">Level 01</div>
-            <span class="level-badge">🏅</span>
+            <span class="level-badge"><i class="fa-solid fa-medal"></i></span>
             <div class="level-name">Cloud Practitioner</div>
             <div class="level-code">AWS CLF-C02</div>
-            <span class="level-status status-cleared">✔ CLEARED</span>
+            <span class="level-status status-cleared"><i class="fa-solid fa-check"></i> CLEARED</span>
             <div class="level-desc">
               Demonstrated foundational knowledge of AWS Cloud concepts, security, pricing, and core services including
               EC2, S3, IAM, and VPC.
@@ -135,12 +143,12 @@
 
           <!-- Level 2 — SAA In Progress 🎯 -->
           <div class="level-card in-progress reveal">
-            <span class="lock-overlay">🎯</span>
+            <span class="lock-overlay"><i class="fa-solid fa-crosshairs" style="color:#e8890c;"></i></span>
             <div class="level-num">Level 02</div>
-            <span class="level-badge">🔥</span>
+            <span class="level-badge"><i class="fa-solid fa-fire"></i></span>
             <div class="level-name">Solutions Architect</div>
             <div class="level-code">AWS SAA-C03</div>
-            <span class="level-status status-progress">⚡ IN PROGRESS</span>
+            <span class="level-status status-progress"><i class="fa-solid fa-bolt"></i> IN PROGRESS</span>
             <div class="level-desc">
               Designing scalable, resilient, and cost-optimized solutions on AWS. Covering EC2, RDS, VPC, Route 53, S3,
               Lambda, CloudFormation &amp; more.
@@ -155,12 +163,12 @@
 
           <!-- Level 3 — Locked -->
           <div class="level-card locked reveal">
-            <span class="lock-overlay">🔒</span>
+            <span class="lock-overlay"><i class="fa-solid fa-lock" style="color:#68748e;"></i></span>
             <div class="level-num">Level 03</div>
-            <span class="level-badge">⭐</span>
+            <span class="level-badge"><i class="fa-solid fa-star"></i></span>
             <div class="level-name">DevOps Engineer</div>
             <div class="level-code">AWS DVA / DOP</div>
-            <span class="level-status status-locked">🔒 LOCKED</span>
+            <span class="level-status status-locked"><i class="fa-solid fa-lock"></i> LOCKED</span>
             <div class="level-desc">
               Next frontier: CI/CD pipelines, Infrastructure as Code, container orchestration, and automated deployments
               on AWS.
@@ -180,7 +188,7 @@
     <!-- ══════════════════════════  SKILLS  ══════════════════ -->
     <section id="skills">
       <div class="section-header reveal">
-        <span class="section-tag">⚡ Tech Arsenal</span>
+        <span class="section-tag"><i class="fa-solid fa-bolt"></i> Tech Arsenal</span>
         <h2 class="section-title">Technical <span>Skills</span></h2>
         <div class="section-line"></div>
       </div>
@@ -189,7 +197,7 @@
 
         <!-- Cloud & AWS -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">☁️</span> Cloud &amp; AWS</div>
+          <div class="skill-cat-title"><i class="fa-brands fa-aws ico"></i> Cloud &amp; AWS</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">AWS EC2 / Auto Scaling</span><span
                 class="skill-pct">85%</span></div>
@@ -222,7 +230,7 @@
 
         <!-- Networking -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">🌐</span> Networking &amp; Protocols</div>
+          <div class="skill-cat-title"><i class="fa-solid fa-network-wired ico"></i> Networking &amp; Protocols</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">TCP/IP / Subnetting</span><span class="skill-pct">80%</span>
             </div>
@@ -255,7 +263,7 @@
 
         <!-- Operating Systems -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">🐧</span> Operating Systems</div>
+          <div class="skill-cat-title"><i class="fa-brands fa-linux ico"></i> Operating Systems</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">Linux (Ubuntu)</span><span class="skill-pct">80%</span>
             </div>
@@ -281,7 +289,7 @@
 
         <!-- Programming -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">💻</span> Programming</div>
+          <div class="skill-cat-title"><i class="fa-solid fa-code ico"></i> Programming</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div>
             <div class="skill-track">
@@ -305,7 +313,7 @@
 
         <!-- Hardware & IoT -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">🔌</span> Hardware &amp; IoT</div>
+          <div class="skill-cat-title"><i class="fa-solid fa-microchip ico"></i> Hardware &amp; IoT</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">RFID Tags &amp; Readers</span><span
                 class="skill-pct">82%</span></div>
@@ -331,7 +339,7 @@
 
         <!-- Tools & Data -->
         <div class="skill-category reveal">
-          <div class="skill-cat-title"><span class="ico">📊</span> Tools &amp; Analytics</div>
+          <div class="skill-cat-title"><i class="fa-solid fa-chart-bar ico"></i> Tools &amp; Analytics</div>
           <div class="skill-item">
             <div class="skill-row"><span class="skill-name">Power BI Dashboards</span><span class="skill-pct">70%</span>
             </div>
@@ -361,7 +369,7 @@
     <!-- ══════════════════════════  EXPERIENCE  ══════════════ -->
     <section id="experience">
       <div class="section-header reveal">
-        <span class="section-tag">🏢 Work History</span>
+        <span class="section-tag"><i class="fa-solid fa-building"></i> Work History</span>
         <h2 class="section-title">Professional <span>Experience</span></h2>
         <div class="section-line"></div>
       </div>
@@ -412,7 +420,7 @@
     <!-- ══════════════════════════  PROJECTS  ════════════════ -->
     <section id="projects">
       <div class="section-header reveal">
-        <span class="section-tag">🚀 Built Projects</span>
+        <span class="section-tag"><i class="fa-solid fa-rocket"></i> Built Projects</span>
         <h2 class="section-title">Featured <span>Projects</span></h2>
         <div class="section-line"></div>
       </div>
@@ -421,7 +429,7 @@
 
         <!-- Project 1 — AWS Web App -->
         <div class="project-card reveal">
-          <div class="project-icon">☁️</div>
+          <div class="project-icon"><i class="fa-brands fa-aws"></i></div>
           <div class="project-title">Cloud Web Application Deployment on AWS</div>
           <div class="project-tags">
             <span class="tag">EC2</span>
@@ -442,7 +450,7 @@
 
         <!-- Project 2 — RFID Billing -->
         <div class="project-card reveal">
-          <div class="project-icon">📡</div>
+          <div class="project-icon"><i class="fa-solid fa-satellite-dish"></i></div>
           <div class="project-title">Automated Billing System using RFID Technology</div>
           <div class="project-tags">
             <span class="tag">RFID</span>
@@ -461,7 +469,7 @@
 
         <!-- Project 3 — Personal Cloud Lab -->
         <div class="project-card reveal">
-          <div class="project-icon">🔬</div>
+          <div class="project-icon"><i class="fa-solid fa-flask"></i></div>
           <div class="project-title">AWS Cloud Labs — SAA-C03 Practice Environment</div>
           <div class="project-tags">
             <span class="tag">Route 53</span>
@@ -484,21 +492,21 @@
     <!-- ══════════════════════════  EDUCATION  ═══════════════ -->
     <section id="education">
       <div class="section-header reveal">
-        <span class="section-tag">🎓 Academic</span>
+        <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic</span>
         <h2 class="section-title">My <span>Education</span></h2>
         <div class="section-line"></div>
       </div>
 
       <div class="edu-card reveal">
-        <div class="edu-icon">🏛️</div>
+        <div class="edu-icon"><i class="fa-solid fa-university"></i></div>
         <div>
           <div class="edu-degree">B.Tech — Computer Science Engineering (IoT)</div>
           <div class="edu-school">Kakatiya Institute of Technology and Science (KITSW)</div>
           <div class="edu-meta">
-            <span>📅 Nov 2022 – May 2026</span>
-            <span>📍 Warangal, India</span>
+            <span><i class="fa-regular fa-calendar"></i> Nov 2022 – May 2026</span>
+            <span><i class="fa-solid fa-location-dot"></i> Warangal, India</span>
           </div>
-          <span class="cgpa-badge">⭐ CGPA: 7.90 / 10.00</span>
+          <span class="cgpa-badge"><i class="fa-solid fa-star"></i> CGPA: 7.90 / 10.00</span>
         </div>
       </div>
     </section>
@@ -507,7 +515,7 @@
     <div id="contact">
       <div class="contact-inner">
         <div class="section-header reveal">
-          <span class="section-tag">📡 Connect</span>
+          <span class="section-tag"><i class="fa-solid fa-satellite-dish"></i> Connect</span>
           <h2 class="section-title">Get In <span>Touch</span></h2>
           <div class="section-line"></div>
           <p style="color:var(--text-muted); margin-top:0.8rem; font-size:0.9rem;">
@@ -518,19 +526,19 @@
         <div class="social-grid reveal">
           <a href="https://www.linkedin.com/in/charansai-chinthala/" target="_blank" rel="noopener"
             class="social-card linkedin">
-            <span class="social-icon">💼</span>
+            <span class="social-icon"><i class="fa-brands fa-linkedin-in"></i></span>
             <span class="social-label">LinkedIn</span>
           </a>
           <a href="mailto:charansaichinthala06@gmail.com" class="social-card email">
-            <span class="social-icon">📧</span>
-            <span class="social-label">Email</span>
+            <span class="social-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span class="social-label">Email Me</span>
           </a>
           <a href="https://github.com/Charansaich" target="_blank" rel="noopener" class="social-card github">
-            <span class="social-icon">🐙</span>
+            <span class="social-icon"><i class="fa-brands fa-github"></i></span>
             <span class="social-label">GitHub</span>
           </a>
           <a href="tel:+918530951673" class="social-card phone">
-            <span class="social-icon">📱</span>
+            <span class="social-icon"><i class="fa-solid fa-phone"></i></span>
             <span class="social-label">+91-8530951673</span>
           </a>
         </div>
@@ -539,7 +547,8 @@
 
     <!-- ══════════════════════════  FOOTER  ══════════════════ -->
     <footer>
-      <p>© 2026 <span>Charan Sai Chinthala</span> &nbsp;·&nbsp; All Rights Reserved &amp; </p>
+      <p><i class="fa-solid fa-copyright"></i> 2026 <span>Charan Sai Chinthala</span> &nbsp;·&nbsp; All Rights Reserved
+        &nbsp;<i class="fa-brands fa-aws" style="color:var(--accent);"></i></p>
     </footer>
 
   </div><!-- /page-wrapper -->
