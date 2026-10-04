@@ -1317,3 +1317,36 @@ footer span {
     gap: 1rem;
   }
 }
+
+/* ── VIEW BADGE BUTTON (Level 1 card) ───────────────────── */
+.view-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  font-family: var(--font-game);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.07);
+  transition: var(--transition);
+}
+
+.view-badge-btn:hover {
+  background: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ── CREDLY BADGE ───────────────────────────────────────── */
+.credly-badge-wrap {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
